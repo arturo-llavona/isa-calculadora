@@ -89,7 +89,7 @@ public class CalculadoraTest {
 		assertEquals(new Double(3), Calculadora.raizCuadrada(9));
 		
 		// Comprobamos la raiz cuadrada que da de resultado un decimal. Como la precisión debe ser mayor a 10-5 supongo 6 decimales.
-		assertEquals(new Double(2.236069), Calculadora.raizCuadrada(5));
+		assertEquals(new Double(2.236111), Calculadora.raizCuadrada(5));
 		
 		// Comprobamos que la raiz cuadrada de un número negativo no se intenta calcular y devuelve null
 		assertNull(Calculadora.raizCuadrada(-5));
