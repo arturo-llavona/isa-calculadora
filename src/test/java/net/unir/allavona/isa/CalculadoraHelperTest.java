@@ -25,13 +25,16 @@ public class CalculadoraHelperTest {
 
 		// Comprobamos que entiende operaciones de dos negativos
 		assertTrue("-8".equals(CalculadoraHelper.calcular("-5 + -3")));	
+
+		// Comprobamos que entiende raices cuadradas
+		assertTrue("3.0".equals(CalculadoraHelper.calcular("raiz 9")));		
 		
 		// Comprobamos que no permite hacer operaciones con decimales
-		assertTrue(Constantes.ERROR_ENTRADA_NO_RECONOCIDA.equals("2.5 + 2"));
+		assertTrue(Constantes.ERROR_ENTRADA_NO_RECONOCIDA.equals(CalculadoraHelper.calcular("2.5 + 2")));
 		
-		assertTrue(Constantes.ERROR_ENTRADA_NO_RECONOCIDA.equals("a + 2"));
+		assertTrue(Constantes.ERROR_ENTRADA_NO_RECONOCIDA.equals(CalculadoraHelper.calcular("a + 2")));
 				
-		assertTrue(Constantes.ERROR_ENTRADA_NO_RECONOCIDA.equals("2 2"));
+		assertTrue(Constantes.ERROR_ENTRADA_NO_RECONOCIDA.equals(CalculadoraHelper.calcular("2 2")));
 		
 	}
 }
