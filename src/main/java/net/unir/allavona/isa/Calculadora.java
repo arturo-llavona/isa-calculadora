@@ -1,4 +1,4 @@
-package net.unir.allavona.isa;
+	package net.unir.allavona.isa;
 
 public class Calculadora {
 		
@@ -14,44 +14,27 @@ public class Calculadora {
 	public static Double divide(Integer a, Integer b) {
 		return (double) a / (double) b;
 	}
+	
+	public static float baskhali(float n, float aprox) {
+		float d = n - (aprox*aprox);
+		float P = d / (aprox*2);
+		float A = aprox + P;
+		return A - (P*P) / (A*2);
+	}
+	
 	public static Double raizCuadrada(Integer a) {
-		/**
-		 * Algoritmo:
-		 * 
-		 * To calculate sqrt(S).
-		 * 
-		 * Step 1: Calculate nearest perfect square to S i.e (N2).
-		 * Step 2: Calculate d = S - (N2)
-		 * Step 3: Calculate P = d/(2*N)
-		 * Step 4: Calculate A = N + P
-		 * Step 5: Sqrt(S) will be nearly equal to A - (P2/2*A)
-		 */
-		
-		// En caso de estar intentando hacer la raiz cuadrada de un número negativo, devolvemos null.
-		if ( a < 0 ) {
+		if ( a <= 0 ) {
 			return null;
 		}
-		
-		float s = a.floatValue();
-		int pSq = 0;
-		int N = 0;
-
-		for (int i = (int) (s); i > 0; i--) {
-			for (int j = 1; j < i; j++) {
-				if (j * j == i) {
-					pSq = i;
-					N = j;
-					break;
-				}
-			}
-			if (pSq > 0)
+		int n = 1;
+		for ( int i = 1 ; i < a ; i++ ) {
+			if ( i * i > a ) {
+				n = i;
 				break;
-		}
-
-		float d = s - pSq;
-		float P = d / (2.0f * N);
-		float A = N + P;
-		float sqrt_of_s = A - ((P * P) / (2.0f * A));		
-		return Math.round(sqrt_of_s * 1000000.0) / 1000000.0;
+			}
+		}		
+		float b = baskhali(a, n);
+		b = baskhali(a, b);
+		return Math.round(b * 1000000.0) / 1000000.0;
 	}
 }
